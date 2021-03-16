@@ -35,7 +35,7 @@
 	</build>
 
 	<properties>
-		<apptokenverifier.version>2.4.0</apptokenverifier.version>
+		<apptokenverifier.version>2.5.0</apptokenverifier.version>
 		<!-- runtime -->
 		<coralog4j.version>2.2.0</coralog4j.version>
 		<storage.version>3.7.0</storage.version>
