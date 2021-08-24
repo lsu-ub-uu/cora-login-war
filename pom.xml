@@ -17,7 +17,7 @@
 	</parent>
 
 	<artifactId>cora-apptokenverifier-war</artifactId>
-	<version>2.0.0</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>Apptokenverifier</name>
@@ -42,7 +42,7 @@
 		<connection>scm:git:https://github.com/lsu-ub-uu/cora-apptokenverifier-war.git</connection>
 		<developerConnection>scm:git:https://github.com/lsu-ub-uu/cora-apptokenverifier-war.git</developerConnection>
 		<url>https://github.com/lsu-ub-uu/cora-apptokenverifier-war.git</url>
-		<tag>cora-apptokenverifier-war-2.0.0</tag>
+		<tag>release/2.0</tag>
 	</scm>
 
 	<dependencies>
