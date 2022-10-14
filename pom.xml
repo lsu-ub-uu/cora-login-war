@@ -20,7 +20,7 @@
 	<version>2.9-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Apptokenverifier</name>
+	<name>apptokenverifier-war</name>
 	<build>
 		<finalName>apptokenverifier</finalName>
 	</build>
@@ -28,12 +28,12 @@
 	<properties>
 		<apptokenverifier.version>3.5.0</apptokenverifier.version>
 		<!-- runtime -->
-		<apptokenstorage.version>2.2.0</apptokenstorage.version>
+		<usertorage.version>2.2.0</usertorage.version>
 		<coralog4j.version>2.9.0</coralog4j.version>
 		<storage.version>6.4.0</storage.version>
 		<searchstorage.version>3.14.0</searchstorage.version>
 		<basicstorage.version>6.1.0</basicstorage.version>
-		<apptokenstorage.version>2.5.0</apptokenstorage.version>
+		<userstorage.version>1.0-SNAPSHOT</userstorage.version>
 		<coradata.version>7.1.0</coradata.version>
 		<basicdata.version>4.1.0</basicdata.version>
 	</properties>
@@ -60,8 +60,8 @@
 		</dependency>
 		<dependency>
 			<groupId>se.uu.ub.cora</groupId>
-			<artifactId>apptokenstorage</artifactId>
-			<version>${apptokenstorage.version}</version>
+			<artifactId>userstorage</artifactId>
+			<version>${userstorage.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
