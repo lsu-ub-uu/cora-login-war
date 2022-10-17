@@ -32,12 +32,13 @@
 		<gatekeeper.version>4.0-SNAPSHOT</gatekeeper.version>
 		<gatekeepertokenprovider.version>2.7.0</gatekeepertokenprovider.version>
 		<coralog4j.version>2.9.0</coralog4j.version>
-		<storage.version>6.4.0</storage.version>
+		<spider.version>7.3-SNAPSHOT</spider.version>
+		<storage.version>7.0-SNAPSHOT</storage.version>
 		<searchstorage.version>3.14.0</searchstorage.version>
-		<basicstorage.version>6.1.0</basicstorage.version>
+		<basicstorage.version>7.0-SNAPSHOT</basicstorage.version>
 		<userstorage.version>1.0-SNAPSHOT</userstorage.version>
-		<coradata.version>7.1.0</coradata.version>
-		<basicdata.version>4.1.0</basicdata.version>
+		<coradata.version>7.2-SNAPSHOT</coradata.version>
+		<basicdata.version>5.0-SNAPSHOT</basicdata.version>
 		<httphandler.version>2.6.0</httphandler.version>
 	</properties>
 
@@ -83,6 +84,12 @@
 			<groupId>se.uu.ub.cora</groupId>
 			<artifactId>userstorage</artifactId>
 			<version>${userstorage.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>se.uu.ub.cora</groupId>
+			<artifactId>spider</artifactId>
+			<version>${spider.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
