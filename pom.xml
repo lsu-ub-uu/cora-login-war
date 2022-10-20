@@ -26,19 +26,19 @@
 	</build>
 
 	<properties>
-		<initialize.version>1.0-SNAPSHOT</initialize.version>
-		<apptokenverifier.version>4.0-SNAPSHOT</apptokenverifier.version>
+		<initialize.version>1.0.0</initialize.version>
+		<apptokenverifier.version>4.0.0</apptokenverifier.version>
 		<!-- runtime -->
-		<gatekeeper.version>4.0-SNAPSHOT</gatekeeper.version>
-		<gatekeepertokenprovider.version>2.7.0</gatekeepertokenprovider.version>
-		<coralog4j.version>2.9.0</coralog4j.version>
-		<spider.version>7.3-SNAPSHOT</spider.version>
-		<storage.version>7.0-SNAPSHOT</storage.version>
-		<searchstorage.version>3.14.0</searchstorage.version>
-		<basicstorage.version>7.0-SNAPSHOT</basicstorage.version>
-		<userstorage.version>1.0-SNAPSHOT</userstorage.version>
-		<coradata.version>7.2-SNAPSHOT</coradata.version>
-		<basicdata.version>5.0-SNAPSHOT</basicdata.version>
+		<gatekeeper.version>4.0.0</gatekeeper.version>
+		<gatekeepertokenprovider.version>2.8.0</gatekeepertokenprovider.version>
+		<coralog4j.version>2.10.0</coralog4j.version>
+		<spider.version>7.3.0</spider.version>
+		<storage.version>7.0.0</storage.version>
+		<searchstorage.version>3.15.0</searchstorage.version>
+		<basicstorage.version>7.0.0</basicstorage.version>
+		<userstorage.version>1.1.0</userstorage.version>
+		<coradata.version>7.2.0</coradata.version>
+		<basicdata.version>5.0.0</basicdata.version>
 		<httphandler.version>2.6.0</httphandler.version>
 	</properties>
 
