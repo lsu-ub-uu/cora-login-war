@@ -35,7 +35,9 @@
 		<spider.version>7.8.0</spider.version>
 		<storage.version>8.0.0</storage.version>
 		<searchstorage.version>3.19.0</searchstorage.version>
-		<basicstorage.version>7.6.0</basicstorage.version>
+		<basicstorage.version>7.7-SNAPSHOT</basicstorage.version>
+		<sqldatabase.version>7.0.0</sqldatabase.version>
+		<sqlstorage.version>2.8.0</sqlstorage.version>
 		<userstorage.version>1.6.0</userstorage.version>
 		<basicdata.version>5.4.0</basicdata.version>
 		<httphandler.version>2.9.0</httphandler.version>
@@ -107,6 +109,18 @@
 			<groupId>se.uu.ub.cora</groupId>
 			<artifactId>basicstorage</artifactId>
 			<version>${basicstorage.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>se.uu.ub.cora</groupId>
+			<artifactId>sqldatabase</artifactId>
+			<version>${sqldatabase.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>se.uu.ub.cora</groupId>
+			<artifactId>sqlstorage</artifactId>
+			<version>${sqlstorage.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
