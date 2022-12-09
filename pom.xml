@@ -27,17 +27,17 @@
 
 	<properties>
 		<initialize.version>1.3.0</initialize.version>
-		<apptokenverifier.version>4.3.0</apptokenverifier.version>
+		<apptokenverifier.version>4.4.0</apptokenverifier.version>
 		<!-- runtime -->
 		<gatekeeper.version>4.3.0</gatekeeper.version>
 		<gatekeepertokenprovider.version>2.11.0</gatekeepertokenprovider.version>
 		<coralog4j.version>2.13.0</coralog4j.version>
-		<spider.version>7.7-SNAPSHOT</spider.version>
-		<storage.version>8.0-SNAPSHOT</storage.version>
-		<searchstorage.version>3.19-SNAPSHOT</searchstorage.version>
-		<basicstorage.version>7.4-SNAPSHOT</basicstorage.version>
-		<userstorage.version>1.5-SNAPSHOT</userstorage.version>
-		<basicdata.version>5.4-SNAPSHOT</basicdata.version>
+		<spider.version>7.8.0</spider.version>
+		<storage.version>8.0.0</storage.version>
+		<searchstorage.version>3.19.0</searchstorage.version>
+		<basicstorage.version>7.5.0</basicstorage.version>
+		<userstorage.version>1.6.0</userstorage.version>
+		<basicdata.version>5.4.0</basicdata.version>
 		<httphandler.version>2.9.0</httphandler.version>
 	</properties>
 
