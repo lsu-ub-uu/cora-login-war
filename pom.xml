@@ -34,7 +34,7 @@
 		<coralog4j.version>2.13.0</coralog4j.version>
 		<spider.version>8.0-SNAPSHOT</spider.version>
 		<storage.version>8.0.0</storage.version>
-		<searchstorage.version>3.19.0</searchstorage.version>
+<!--		<searchstorage.version>3.19.0</searchstorage.version>-->
 		<basicstorage.version>7.7.0</basicstorage.version>
 		<sqldatabase.version>7.0.0</sqldatabase.version>
 		<sqlstorage.version>2.10.0</sqlstorage.version>
@@ -99,12 +99,12 @@
 			<version>${storage.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>se.uu.ub.cora</groupId>
-			<artifactId>searchstorage</artifactId>
-			<version>${searchstorage.version}</version>
-			<scope>runtime</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>se.uu.ub.cora</groupId>-->
+<!--			<artifactId>searchstorage</artifactId>-->
+<!--			<version>${searchstorage.version}</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>se.uu.ub.cora</groupId>
 			<artifactId>basicstorage</artifactId>
