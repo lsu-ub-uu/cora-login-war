@@ -26,20 +26,20 @@
 	</build>
 
 	<properties>
-		<initialize.version>1.5.0</initialize.version>
-		<apptokenverifier.version>4.6.0</apptokenverifier.version>
+		<initialize.version>1.6.0</initialize.version>
+		<apptokenverifier.version>4.7.0</apptokenverifier.version>
 		<!-- runtime -->
-		<gatekeeper.version>4.5.0</gatekeeper.version>
-		<gatekeepertokenprovider.version>2.13.0</gatekeepertokenprovider.version>
-		<coralog4j.version>2.15.0</coralog4j.version>
-		<spider.version>8.1.0</spider.version>
-		<storage.version>9.0.0</storage.version>
-		<basicstorage.version>7.9.0</basicstorage.version>
-		<sqldatabase.version>7.2.0</sqldatabase.version>
-		<sqlstorage.version>2.12.0</sqlstorage.version>
-		<userstorage.version>1.9.0</userstorage.version>
-		<basicdata.version>5.6.0</basicdata.version>
-		<httphandler.version>2.11.0</httphandler.version>
+		<gatekeeper.version>4.6.0</gatekeeper.version>
+		<gatekeepertokenprovider.version>2.14.0</gatekeepertokenprovider.version>
+		<coralog4j.version>2.16.0</coralog4j.version>
+		<spider.version>8.2.0</spider.version>
+		<storage.version>9.1.0</storage.version>
+		<basicstorage.version>7.10.0</basicstorage.version>
+		<sqldatabase.version>7.3.0</sqldatabase.version>
+		<sqlstorage.version>2.13.0</sqlstorage.version>
+		<userstorage.version>1.10.0</userstorage.version>
+		<basicdata.version>5.7.0</basicdata.version>
+		<httphandler.version>2.16.0</httphandler.version>
 	</properties>
 
 	<scm>
