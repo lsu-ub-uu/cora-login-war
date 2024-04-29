@@ -16,19 +16,18 @@
 		<version>2.5.0</version>
 	</parent>
 
-	<artifactId>cora-apptokenverifier-war</artifactId>
-	<version>2.20-SNAPSHOT</version>
+	<artifactId>cora-login-war</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-
-	<name>apptokenverifier-war</name>
+	<name>Login war</name>
 	<build>
-		<finalName>apptokenverifier</finalName>
+		<finalName>login</finalName>
 	</build>
 
 	<properties>
-		<initialize.version>1.6.0</initialize.version>
-		<apptokenverifier.version>4.7.0</apptokenverifier.version>
+		<login.version>1.0-SNAPSHOT</login.version>
 		<!-- runtime -->
+		<initialize.version>1.6.0</initialize.version>
 		<gatekeeper.version>4.6.0</gatekeeper.version>
 		<gatekeepertokenprovider.version>2.14.0</gatekeepertokenprovider.version>
 		<coralog4j.version>2.16.0</coralog4j.version>
@@ -43,13 +42,19 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:https://github.com/lsu-ub-uu/cora-apptokenverifier-war.git</connection>
-		<developerConnection>scm:git:https://github.com/lsu-ub-uu/cora-apptokenverifier-war.git</developerConnection>
-		<url>https://github.com/lsu-ub-uu/cora-apptokenverifier-war.git</url>
+		<connection>scm:git:https://github.com/lsu-ub-uu/cora-login-war.git</connection>
+		<developerConnection>scm:git:https://github.com/lsu-ub-uu/cora-login-war.git</developerConnection>
+		<url>https://github.com/lsu-ub-uu/cora-login-war.git</url>
 		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
+		<dependency>
+			<groupId>se.uu.ub.cora</groupId>
+			<artifactId>login</artifactId>
+			<version>${login.version}</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>se.uu.ub.cora</groupId>
 			<artifactId>initialize</artifactId>
@@ -73,12 +78,6 @@
 			<artifactId>log4j</artifactId>
 			<version>${coralog4j.version}</version>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>se.uu.ub.cora</groupId>
-			<artifactId>apptokenverifier</artifactId>
-			<version>${apptokenverifier.version}</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>se.uu.ub.cora</groupId>
