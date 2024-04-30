@@ -25,15 +25,15 @@
 	</build>
 
 	<properties>
-		<login.version>1.0-SNAPSHOT</login.version>
+		<login.version>5.0.0</login.version>
 		<!-- runtime -->
 		<initialize.version>1.6.0</initialize.version>
 		<gatekeeper.version>4.6.0</gatekeeper.version>
 		<gatekeepertokenprovider.version>2.14.0</gatekeepertokenprovider.version>
 		<coralog4j.version>2.16.0</coralog4j.version>
-		<spider.version>8.2.0</spider.version>
+		<spider.version>8.4.0</spider.version>
 		<storage.version>9.1.0</storage.version>
-		<basicstorage.version>7.10.0</basicstorage.version>
+		<basicstorage.version>7.11.0</basicstorage.version>
 		<sqldatabase.version>7.3.0</sqldatabase.version>
 		<sqlstorage.version>2.13.0</sqlstorage.version>
 		<userstorage.version>1.10.0</userstorage.version>
