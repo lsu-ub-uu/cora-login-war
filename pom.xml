@@ -36,7 +36,7 @@
 		<basicstorage.version>7.11.0</basicstorage.version>
 		<sqldatabase.version>7.3.0</sqldatabase.version>
 		<sqlstorage.version>2.13.0</sqlstorage.version>
-		<userstorage.version>1.12.0</userstorage.version>
+		<userstorage.version>1.13-SNAPSHOT</userstorage.version>
 		<basicdata.version>5.7.0</basicdata.version>
 		<httphandler.version>2.16.0</httphandler.version>
 	</properties>
