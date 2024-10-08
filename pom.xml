@@ -39,6 +39,7 @@
 		<userstorage.version>1.15-SNAPSHOT</userstorage.version>
 		<basicdata.version>6.0.0</basicdata.version>
 		<httphandler.version>2.16.0</httphandler.version>
+		<jsonconverter.version>1.0-SNAPSHOT</jsonconverter.version>
 	</properties>
 
 	<scm>
@@ -127,6 +128,11 @@
 			<version>${httphandler.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+		<dependency>
+			<groupId>se.uu.ub.cora</groupId>
+			<artifactId>jsonconverter</artifactId>
+			<version>${jsonconverter.version}</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 </project>
