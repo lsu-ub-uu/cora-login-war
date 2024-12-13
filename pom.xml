@@ -25,11 +25,11 @@
 	</build>
 
 	<properties>
-		<login.version>5.4.0</login.version>
+		<login.version>5.5-SNAPSHOT</login.version>
 		<!-- runtime -->
 		<initialize.version>1.6.0</initialize.version>
 		<gatekeeper.version>5.0.0</gatekeeper.version>
-		<gatekeepertokenprovider.version>2.15.0</gatekeepertokenprovider.version>
+		<gatekeepertokenprovider.version>2.16-SNAPSHOT</gatekeepertokenprovider.version>
 		<coralog4j.version>2.16.0</coralog4j.version>
 		<spider.version>9.0.0</spider.version>
 		<storage.version>9.3.0</storage.version>
