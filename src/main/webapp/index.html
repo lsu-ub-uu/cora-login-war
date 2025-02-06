@@ -1,0 +1,470 @@
+<!--
+  ~ Copyright 2025 Uppsala University Library
+  ~
+  ~ This file is part of Cora.
+  ~
+  ~     Cora is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Cora is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Cora.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cora Login API Documentation</title>
+	<link rel="stylesheet" href="api.css">
+	<script>
+		function showEnglish() {
+			document.getElementById('english').style.display = 'block';
+			document.getElementById('swedish').style.display = 'none';
+			document.querySelector('#sidebar .english-nav').style.display = 'block';
+			document.querySelector('#sidebar .swedish-nav').style.display = 'none';
+			document.body.classList.remove('swedish-bg');
+			document.body.classList.add('english-bg');
+		}
+		function showSwedish() {
+			document.getElementById('english').style.display = 'none';
+			document.getElementById('swedish').style.display = 'block';
+			document.querySelector('#sidebar .english-nav').style.display = 'none';
+			document.querySelector('#sidebar .swedish-nav').style.display = 'block';
+			document.body.classList.remove('english-bg');
+			document.body.classList.add('swedish-bg');
+		}
+	</script>
+</head>
+
+<body onload="showEnglish()">
+	<div id="langButtons">
+		<button class="english" onclick="showEnglish()">English</button>
+		<button class="swedish" onclick="showSwedish()">Svenska</button>
+	</div>
+
+	<!-- Left Sidebar Navigation -->
+	<nav id="sidebar">
+		<ul class="english-nav">
+			<li><a href="#base-url">Base URL</a></li>
+			<li><a href="#authentication">Authentication</a></li>
+			<li><a href="#supported-media">Supported Media</a></li>
+			<li><a href="#apptoken">1. App Token Login</a></li>
+			<li><a href="#password">2. Password Login</a></li>
+			<li><a href="#renew-auth-token">3. Renew Auth Token</a></li>
+			<li><a href="#remove-auth-token">4. Remove Auth Token</a></li>
+			<li><a href="#getting-started">Getting Started</a></li>
+		</ul>
+		<ul class="swedish-nav" style="display: none;">
+			<li><a href="#bas-url">Bas-URL</a></li>
+			<li><a href="#autentisering">Autentisering</a></li>
+			<li><a href="#stodda-medier">Stödda Mediatyper</a></li>
+			<li><a href="#apptoken-sv">1. App Token-inloggning</a></li>
+			<li><a href="#password-sv">2. Lösenordsinloggning</a></li>
+			<li><a href="#renew-auth-token-sv">3. Förnya Auth Token</a></li>
+			<li><a href="#remove-auth-token-sv">4. Ta Bort Auth Token</a></li>
+			<li><a href="#kom-igang">Kom igång</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+	<div id="main-content">
+		<!-- English Version -->
+		<div id="english">
+			<header>
+				<h1>Cora Login API Documentation</h1>
+				<p>This document describes the REST API endpoints for logging in to Cora. The API supports
+					obtaining an authentication token using either an app token or a password, as well as renewing
+					and removing tokens. The endpoints consume and produce custom media types. All requests and
+					responses use JSON for authentication.</p>
+			</header>
+
+			<section id="base-url">
+				<h2>Base URL</h2>
+				<p>The base URL is derived from your server settings. For example, if your server is hosted
+					at:</p>
+				<pre>http://&lt;host&gt;:&lt;port&gt;/&lt;context&gt;/</pre>
+				<p>then the effective base URL for the login API becomes:</p>
+				<pre>{baseUrl}</pre>
+				<p>
+					Replace
+					<code>{baseUrl}</code>
+					with the actual URL (e.g.
+					<code>https://cora.epc.ub.uu.se/systemone/rest/</code>
+					).
+				</p>
+			</section>
+
+			<section id="authentication">
+				<h2>Authentication</h2>
+				<p>
+					Some endpoints require an authentication token (
+					<code>authToken</code>
+					). When no token is provided, the API runs in GUEST mode.
+				</p>
+			</section>
+
+			<section id="supported-media">
+				<h2>Supported Media Types (General)</h2>
+				<ul>
+					<li><strong>Login Requests:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Authentication Responses:</strong> <code>application/vnd.uub.authentication+json</code>
+					</li>
+				</ul>
+			</section>
+
+			<!-- 1. App Token Login -->
+			<div class="endpoint" id="apptoken">
+				<h2>1. App Token Login</h2>
+				<h3>Description</h3>
+				<p>Obtains an authentication token using an app token. The request must include credentials
+					(loginId and secret) as a newline‑separated string.</p>
+				<h3>Endpoint</h3>
+				<pre>POST {baseUrl}/apptoken</pre>
+				<h3>Request</h3>
+				<ul>
+					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Request Body:</strong> A string containing the loginId and secret separated by
+						a newline.</li>
+				</ul>
+				<h3>Response</h3>
+				<ul>
+					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li>Status: <strong>201 Created</strong></li>
+					<li>Headers: Includes a <code>Location</code> header with the URI to the created token
+						resource.
+					</li>
+					<li>Body: A JSON representation of the authentication token.</li>
+				</ul>
+				<h3>Error Handling</h3>
+				<p>Possible errors include 401 (Unauthorized) for login failures or 500 (Internal Server
+					Error) for unexpected issues.</p>
+			</div>
+
+			<!-- 2. Password Login -->
+			<div class="endpoint" id="password">
+				<h2>2. Password Login</h2>
+				<h3>Description</h3>
+				<p>Obtains an authentication token using a password login. The request must include
+					credentials (loginId and secret) as a newline‑separated string.</p>
+				<h3>Endpoint</h3>
+				<pre>POST {baseUrl}/password</pre>
+				<h3>Request</h3>
+				<ul>
+					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Request Body:</strong> A string containing the loginId and secret separated by
+						a newline.</li>
+				</ul>
+				<h3>Response</h3>
+				<ul>
+					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li>Status: <strong>201 Created</strong></li>
+					<li>Headers: Includes a <code>Location</code> header with the URI to the created token
+						resource.
+					</li>
+					<li>Body: A JSON representation of the authentication token.</li>
+				</ul>
+				<h3>Error Handling</h3>
+				<p>Possible errors include 401 (Unauthorized) or 500 (Internal Server Error).</p>
+			</div>
+
+			<!-- 3. Renew Auth Token -->
+			<div class="endpoint" id="renew-auth-token">
+				<h2>3. Renew Auth Token</h2>
+				<h3>Description</h3>
+				<p>Renews an existing authentication token. The token to be renewed is specified in the
+					path, and the current token is provided in the header.</p>
+				<h3>Endpoint</h3>
+				<pre>POST {baseUrl}/authToken/{tokenId}</pre>
+				<h3>Request</h3>
+				<ul>
+					<li><strong>Header:</strong> <code>authToken</code> – The current authentication token.</li>
+					<li><strong>Path Parameter:</strong> <code>tokenId</code> – The ID of the token to renew.</li>
+				</ul>
+				<h3>Response</h3>
+				<ul>
+					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li>Status: <strong>200 OK</strong></li>
+					<li>Body: A JSON representation of the renewed authentication token.</li>
+				</ul>
+				<h3>Error Handling</h3>
+				<p>Possible errors include 401 (Unauthorized) if the token cannot be renewed.</p>
+			</div>
+
+			<!-- 4. Remove Auth Token -->
+			<div class="endpoint" id="remove-auth-token">
+				<h2>4. Remove Auth Token</h2>
+				<h3>Description</h3>
+				<p>Removes (invalidates) an authentication token. The token to be removed is specified in
+					the path, and the current token is provided in the header.</p>
+				<h3>Endpoint</h3>
+				<pre>DELETE {baseUrl}/authToken/{tokenId}</pre>
+				<h3>Request</h3>
+				<ul>
+					<li><strong>Header:</strong> <code>authToken</code> – The current authentication token.</li>
+					<li><strong>Path Parameter:</strong> <code>tokenId</code> – The ID of the token to remove.</li>
+				</ul>
+				<h3>Response</h3>
+				<ul>
+					<li>Status: <strong>200 OK</strong></li>
+					<li>Body: No response body.</li>
+				</ul>
+				<h3>Error Handling</h3>
+				<p>Possible errors include 404 (Not Found) if the token is not found.</p>
+			</div>
+
+			<!-- Getting Started -->
+			<section id="getting-started">
+				<h2>Getting Started</h2>
+				<p>This section provides a quick guide to help you start using the Login API.</p>
+				<h3>Obtain an Authentication Token</h3>
+				<p>You can obtain an authentication token by either using App Token Login or Password Login.
+					For example, to login with an app token, send:</p>
+				<pre>POST {baseUrl}/apptoken</pre>
+				<p>with the credentials (loginId and secret) as a newline‑separated string in the request
+					body.</p>
+				<h3>Renew Your Token</h3>
+				<p>To extend the validity of your token, renew it by sending:</p>
+				<pre>POST {baseUrl}/authToken/{tokenId}</pre>
+				<p>with your current token provided in the header.</p>
+				<h3>Remove Your Token</h3>
+				<p>To log out, remove your token by sending:</p>
+				<pre>DELETE {baseUrl}/authToken/{tokenId}</pre>
+				<p>This invalidates your authentication token.</p>
+			</section>
+
+			<section id="common-errors">
+				<h2>Common Error Responses</h2>
+				<ul>
+					<li><strong>400 Bad Request:</strong> The input is malformed or conversion errors
+						occurred.</li>
+					<li><strong>401 Unauthorized:</strong> The authentication token is missing, invalid, or
+						login failed.</li>
+					<li><strong>403 Forbidden:</strong> The authenticated user does not have the necessary
+						permissions.</li>
+					<li><strong>404 Not Found:</strong> The requested resource or token was not found.</li>
+					<li><strong>500 Internal Server Error:</strong> An unexpected error occurred.</li>
+				</ul>
+			</section>
+
+			<section id="notes">
+				<h2>Notes</h2>
+				<ul>
+					<li><strong>Content Negotiation:</strong> The API uses the <code>Content-Type</code>
+						header for the request format and the <code>Accept</code> header for the response format. In
+						this API, login requests use a custom media type.</li>
+					<li><strong>Error Handling:</strong> Errors are mapped to appropriate HTTP status codes
+						with plain text error messages.</li>
+					<li><strong>Token Usage:</strong> Once you have obtained an authentication token, use it
+						in the <code>authToken</code> header for renewing or removing the token.</li>
+					<li><strong>Guest Mode:</strong> If no <code>authToken</code> is provided, the API may run
+						in GUEST mode.</li>
+				</ul>
+			</section>
+
+			<footer>
+				<p>&copy; 2025 Cora Login API Documentation</p>
+			</footer>
+		</div>
+
+		<!-- Swedish Version -->
+		<div id="swedish" style="display: none;">
+			<header id="bas-url">
+				<h1>Cora Login API Dokumentation</h1>
+				<p>Detta dokument beskriver REST API-endpoints för inloggning i Cora. API:et stöder att
+					erhålla ett autentiseringstoken via antingen app token eller lösenord, samt att förnya och ta
+					bort tokens. Endpoints använder anpassade mediatyper för både begäran och svar.</p>
+			</header>
+			<section id="bas-url">
+			    <h2>Bas-URL</h2>
+			    <p>Bas-URL:en hämtas från dina serverinställningar. Till exempel, om din server är hostad på:</p>
+			    <pre>http://&lt;host&gt;:&lt;port&gt;/&lt;context&gt;/</pre>
+			    <p>då blir den effektiva bas-URL:en för inloggnings-API:et:</p>
+			    <pre>{baseUrl}</pre>
+			    <p>
+			        Ersätt
+			        <code>{baseUrl}</code>
+			        med den faktiska URL:en (t.ex.
+			        <code>https://cora.epc.ub.uu.se/systemone/rest/</code>
+			        ).
+			    </p>
+			</section>
+
+			<section id="autentisering">
+				<h2>Autentisering</h2>
+				<p>
+					Vissa endpoints kräver ett autentiseringstoken (
+					<code>authToken</code>
+					). Om inget token anges kan API:et köras i GÄST-läge.
+				</p>
+			</section>
+
+			<section id="stodda-medier">
+				<h2>Stödda Mediatyper (Generellt)</h2>
+				<ul>
+					<li><strong>Inloggningsbegäran:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Autentiseringssvar:</strong> <code>application/vnd.uub.authentication+json</code>
+					</li>
+				</ul>
+			</section>
+
+			<!-- 1. App Token-inloggning -->
+			<div class="endpoint" id="apptoken-sv">
+				<h2>1. App Token-inloggning</h2>
+				<h3>Beskrivning</h3>
+				<p>Erhåller ett autentiseringstoken genom att använda ett app token. Begäran ska innehålla
+					inloggningsuppgifter (loginId och hemlighet) separerade med en ny rad.</p>
+				<h3>Endpoint</h3>
+				<pre>POST {baseUrl}/apptoken</pre>
+				<h3>Begäran</h3>
+				<ul>
+					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Request Body:</strong> En sträng med loginId och hemlighet, separerade med en
+						ny rad.</li>
+				</ul>
+				<h3>Svar</h3>
+				<ul>
+					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li>Status: <strong>201 Created</strong></li>
+					<li>Headers: Inkluderar en <code>Location</code>-header med URI till token-resursen.
+					</li>
+					<li>Body: Ett JSON-objekt som representerar autentiseringstokenet.</li>
+				</ul>
+				<h3>Felhantering</h3>
+				<p>Möjliga fel: 401 (Unauthorized) vid inloggningsfel eller 500 (Internal Server Error) vid
+					oväntade fel.</p>
+			</div>
+
+			<!-- 2. Lösenordsinloggning -->
+			<div class="endpoint" id="password-sv">
+				<h2>2. Lösenordsinloggning</h2>
+				<h3>Beskrivning</h3>
+				<p>Erhåller ett autentiseringstoken med hjälp av lösenordsinloggning. Begäran ska innehålla
+					inloggningsuppgifter (loginId och hemlighet) separerade med en ny rad.</p>
+				<h3>Endpoint</h3>
+				<pre>POST {baseUrl}/password</pre>
+				<h3>Begäran</h3>
+				<ul>
+					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Request Body:</strong> En sträng med loginId och hemlighet, separerade med en
+						ny rad.</li>
+				</ul>
+				<h3>Svar</h3>
+				<ul>
+					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li>Status: <strong>201 Created</strong></li>
+					<li>Headers: Inkluderar en <code>Location</code>-header med URI till token-resursen.
+					</li>
+					<li>Body: Ett JSON-objekt som representerar autentiseringstokenet.</li>
+				</ul>
+				<h3>Felhantering</h3>
+				<p>Möjliga fel: 401 (Unauthorized) eller 500 (Internal Server Error).</p>
+			</div>
+
+			<!-- 3. Förnya Auth Token -->
+			<div class="endpoint" id="renew-auth-token-sv">
+				<h2>3. Förnya Auth Token</h2>
+				<h3>Beskrivning</h3>
+				<p>Förnyar ett befintligt autentiseringstoken. Token-ID anges i sökvägen och det aktuella
+					token skickas med i headern.</p>
+				<h3>Endpoint</h3>
+				<pre>POST {baseUrl}/authToken/{tokenId}</pre>
+				<h3>Begäran</h3>
+				<ul>
+					<li><strong>Header:</strong> <code>authToken</code> – Det aktuella autentiseringstokenet.</li>
+					<li><strong>Path Parameter:</strong> <code>tokenId</code> – ID för tokenet som ska
+						förnyas.</li>
+				</ul>
+				<h3>Svar</h3>
+				<ul>
+					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li>Status: <strong>200 OK</strong></li>
+					<li>Body: Ett JSON-objekt som representerar det förnyade autentiseringstokenet.</li>
+				</ul>
+				<h3>Felhantering</h3>
+				<p>Möjliga fel: 401 (Unauthorized) om tokenet inte kan förnyas.</p>
+			</div>
+
+			<!-- 4. Ta Bort Auth Token -->
+			<div class="endpoint" id="remove-auth-token-sv">
+				<h2>4. Ta Bort Auth Token</h2>
+				<h3>Beskrivning</h3>
+				<p>Tar bort (ogiltigförklarar) ett autentiseringstoken. Token-ID anges i sökvägen och det
+					aktuella token skickas med i headern.</p>
+				<h3>Endpoint</h3>
+				<pre>DELETE {baseUrl}/authToken/{tokenId}</pre>
+				<h3>Begäran</h3>
+				<ul>
+					<li><strong>Header:</strong> <code>authToken</code> – Det aktuella autentiseringstokenet.</li>
+					<li><strong>Path Parameter:</strong> <code>tokenId</code> – ID för tokenet som ska tas
+						bort.</li>
+				</ul>
+				<h3>Svar</h3>
+				<ul>
+					<li>Status: <strong>200 OK</strong></li>
+					<li>Body: Inget svarsinnehåll.</li>
+				</ul>
+				<h3>Felhantering</h3>
+				<p>Möjliga fel: 404 (Not Found) om tokenet inte hittas.</p>
+			</div>
+
+			<!-- Kom igång -->
+			<section id="kom-igang">
+				<h2>Kom igång</h2>
+				<p>Denna sektion ger en steg-för-steg-guide för att snabbt komma igång med Login API:et.</p>
+				<h3>Erhåll ett Autentiseringstoken</h3>
+				<p>Du kan erhålla ett token genom att använda antingen App Token-inloggning eller
+					Lösenordsinloggning. Exempel:</p>
+				<pre>POST {baseUrl}/apptoken</pre>
+				<p>Skicka med dina inloggningsuppgifter (loginId och hemlighet) separerade med en ny rad.</p>
+				<h3>Förnya Ditt Token</h3>
+				<p>För att förlänga giltighetstiden för ditt token, skicka:</p>
+				<pre>POST {baseUrl}/authToken/{tokenId}</pre>
+				<p>med ditt aktuella token i headern.</p>
+				<h3>Ta Bort Ditt Token</h3>
+				<p>För att logga ut, ta bort ditt token med:</p>
+				<pre>DELETE {baseUrl}/authToken/{tokenId}</pre>
+				<p>Detta ogiltigförklarar ditt autentiseringstoken.</p>
+			</section>
+
+			<section id="common-errors-sv">
+				<h2>Vanliga Fel</h2>
+				<ul>
+					<li><strong>400 Bad Request:</strong> Inmatningen är felaktig eller konverteringsfel
+						uppstod.</li>
+					<li><strong>401 Unauthorized:</strong> Autentiseringstoken saknas, är ogiltigt eller
+						inloggningen misslyckades.</li>
+					<li><strong>403 Forbidden:</strong> Den autentiserade användaren har inte nödvändiga
+						rättigheter.</li>
+					<li><strong>404 Not Found:</strong> Den efterfrågade resursen eller tokenet hittades inte.</li>
+					<li><strong>500 Internal Server Error:</strong> Ett oväntat fel uppstod.</li>
+				</ul>
+			</section>
+
+			<section id="notes-sv">
+				<h2>Noteringar</h2>
+				<ul>
+					<li><strong>Content Negotiation:</strong> API:et använder headern <code>Content-Type</code>
+						för att bestämma begärans format samt headern <code>Accept</code> för svarets format.
+						Inloggningsbegäran använder en anpassad mediatyp.</li>
+					<li><strong>Felhantering:</strong> Fel omvandlas till passande HTTP-statuskoder med
+						felmeddelanden i ren text.</li>
+					<li><strong>Gästläge:</strong> Om inget autentiseringstoken skickas, körs API:et i
+						GÄST-läge.</li>
+				</ul>
+			</section>
+
+			<footer id="swedish-footer">
+				<p>&copy; 2025 Cora Login API Dokumentation</p>
+			</footer>
+		</div>
+	</div>
+</body>
+
+</html>
