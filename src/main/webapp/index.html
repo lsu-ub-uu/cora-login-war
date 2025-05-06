@@ -113,8 +113,8 @@
 			<section id="supported-media">
 				<h2>Supported Media Types (General)</h2>
 				<ul>
-					<li><strong>Login Requests:</strong> <code>application/vnd.uub.login</code></li>
-					<li><strong>Authentication Responses:</strong> <code>application/vnd.uub.authentication+json</code>
+					<li><strong>Login Requests:</strong> <code>application/vnd.cora.login</code></li>
+					<li><strong>Authentication Responses:</strong> <code>application/vnd.cora.authentication+json</code>
 					</li>
 				</ul>
 			</section>
@@ -129,13 +129,13 @@
 				<pre>POST {baseUrl}/apptoken</pre>
 				<h3>Request</h3>
 				<ul>
-					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Consumes:</strong> <code>application/vnd.cora.login</code></li>
 					<li><strong>Request Body:</strong> A string containing the loginId and secret separated by
 						a newline.</li>
 				</ul>
 				<h3>Response</h3>
 				<ul>
-					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li><strong>Produces:</strong> <code>application/vnd.cora.authentication+json</code></li>
 					<li>Status: <strong>201 Created</strong></li>
 					<li>Headers: Includes a <code>Location</code> header with the URI to the created token
 						resource.
@@ -157,13 +157,13 @@
 				<pre>POST {baseUrl}/password</pre>
 				<h3>Request</h3>
 				<ul>
-					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Consumes:</strong> <code>application/vnd.cora.login</code></li>
 					<li><strong>Request Body:</strong> A string containing the loginId and secret separated by
 						a newline.</li>
 				</ul>
 				<h3>Response</h3>
 				<ul>
-					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li><strong>Produces:</strong> <code>application/vnd.cora.authentication+json</code></li>
 					<li>Status: <strong>201 Created</strong></li>
 					<li>Headers: Includes a <code>Location</code> header with the URI to the created token
 						resource.
@@ -189,7 +189,7 @@
 				</ul>
 				<h3>Response</h3>
 				<ul>
-					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li><strong>Produces:</strong> <code>application/vnd.cora.authentication+json</code></li>
 					<li>Status: <strong>200 OK</strong></li>
 					<li>Body: A JSON representation of the renewed authentication token.</li>
 				</ul>
@@ -308,8 +308,8 @@
 			<section id="stodda-medier">
 				<h2>Stödda Mediatyper (Generellt)</h2>
 				<ul>
-					<li><strong>Inloggningsbegäran:</strong> <code>application/vnd.uub.login</code></li>
-					<li><strong>Autentiseringssvar:</strong> <code>application/vnd.uub.authentication+json</code>
+					<li><strong>Inloggningsbegäran:</strong> <code>application/vnd.cora.login</code></li>
+					<li><strong>Autentiseringssvar:</strong> <code>application/vnd.cora.authentication+json</code>
 					</li>
 				</ul>
 			</section>
@@ -324,13 +324,13 @@
 				<pre>POST {baseUrl}/apptoken</pre>
 				<h3>Begäran</h3>
 				<ul>
-					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Consumes:</strong> <code>application/vnd.cora.login</code></li>
 					<li><strong>Request Body:</strong> En sträng med loginId och hemlighet, separerade med en
 						ny rad.</li>
 				</ul>
 				<h3>Svar</h3>
 				<ul>
-					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li><strong>Produces:</strong> <code>application/vnd.cora.authentication+json</code></li>
 					<li>Status: <strong>201 Created</strong></li>
 					<li>Headers: Inkluderar en <code>Location</code>-header med URI till token-resursen.
 					</li>
@@ -351,13 +351,13 @@
 				<pre>POST {baseUrl}/password</pre>
 				<h3>Begäran</h3>
 				<ul>
-					<li><strong>Consumes:</strong> <code>application/vnd.uub.login</code></li>
+					<li><strong>Consumes:</strong> <code>application/vnd.cora.login</code></li>
 					<li><strong>Request Body:</strong> En sträng med loginId och hemlighet, separerade med en
 						ny rad.</li>
 				</ul>
 				<h3>Svar</h3>
 				<ul>
-					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li><strong>Produces:</strong> <code>application/vnd.cora.authentication+json</code></li>
 					<li>Status: <strong>201 Created</strong></li>
 					<li>Headers: Inkluderar en <code>Location</code>-header med URI till token-resursen.
 					</li>
@@ -383,7 +383,7 @@
 				</ul>
 				<h3>Svar</h3>
 				<ul>
-					<li><strong>Produces:</strong> <code>application/vnd.uub.authentication+json</code></li>
+					<li><strong>Produces:</strong> <code>application/vnd.cora.authentication+json</code></li>
 					<li>Status: <strong>200 OK</strong></li>
 					<li>Body: Ett JSON-objekt som representerar det förnyade autentiseringstokenet.</li>
 				</ul>
