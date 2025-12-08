@@ -13,7 +13,7 @@
 	<parent>
 		<groupId>se.uu.ub.cora</groupId>
 		<artifactId>cora-parent</artifactId>
-		<version>2.7.0</version>
+		<version>3.1.0</version>
 	</parent>
 
 	<artifactId>cora-login-war</artifactId>
@@ -25,19 +25,19 @@
 	</build>
 
 	<properties>
-		<login.version>5.10-SNAPSHOT</login.version>
+		<login.version>5.10.0</login.version>
 		<!-- runtime -->
 		<initialize.version>1.7.0</initialize.version>
 		<gatekeeper.version>5.2.0</gatekeeper.version>
-		<gatekeepertokenprovider.version>2.19-SNAPSHOT</gatekeepertokenprovider.version>
+		<gatekeepertokenprovider.version>2.20.0</gatekeepertokenprovider.version>
 		<coralog4j.version>2.16.0</coralog4j.version>
-		<spider.version>9.19.0</spider.version>
-		<storage.version>9.8.0</storage.version>
-		<basicstorage.version>7.17.0</basicstorage.version>
+		<spider.version>10.5.0</spider.version>
+		<storage.version>10.0.0</storage.version>
+		<basicstorage.version>7.18.0</basicstorage.version>
 		<sqldatabase.version>7.3.0</sqldatabase.version>
-		<sqlstorage.version>2.15.0</sqlstorage.version>
+		<sqlstorage.version>2.16.0</sqlstorage.version>
 		<userstorage.version>1.17.0</userstorage.version>
-		<basicdata.version>6.3.0</basicdata.version>
+		<basicdata.version>7.1.0</basicdata.version>
 		<httphandler.version>2.17.0</httphandler.version>
 	</properties>
 
